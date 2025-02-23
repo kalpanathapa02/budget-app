@@ -30,7 +30,7 @@ function signIn() {
       const token = credential.accessToken;
       const user = result.user;
       localStorage.setItem("email", JSON.stringify(user.email));
-      window.location = "tasks.html";
+      window.location = "my-budget.html";
     })
     .catch((error) => {
       const errorCode = error.code;
