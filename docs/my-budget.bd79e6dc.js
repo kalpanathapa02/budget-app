@@ -599,10 +599,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var _firebaseJs = require("./firebase.js");
 var _firestore = require("firebase/firestore");
 var _generativeAi = require("@google/generative-ai");
-const incomeInput = document.getElementById("incomeInput");
-const expenseInput = document.getElementById("expenseInput");
-const addExpenseBtn = document.getElementById("addExpenseBtn");
-const expenseList = document.getElementById("expenseList");
+const transactionInput = document.getElementById("incomeInput"); // Renamed for clarity
+const addTransactionBtn = document.getElementById("addTransactionBtn"); // Renamed for clarity
+const transactionList = document.getElementById("expenseList");
 const balanceDisplay = document.getElementById("balance");
 const aiButton = document.getElementById("send-btn");
 const aiInput = document.getElementById("chat-input");
@@ -631,39 +630,44 @@ async function askChatBot(request) {
     let result = await model.generateContent(request);
     appendMessage(result.response.text());
 }
-async function addExpense() {
-    const expenseAmount = parseFloat(expenseInput.value.trim());
-    if (!isNaN(expenseAmount) && expenseAmount > 0) {
-        let expenseId = await addExpenseToFirestore(expenseAmount);
-        expenseInput.value = "";
+async function addTransaction() {
+    const transactionAmount = parseFloat(transactionInput.value.trim());
+    const transactionType = document.getElementById("transactionType").value; // Get selected type (Income or Expense)
+    if (!isNaN(transactionAmount) && transactionAmount > 0) {
+        let transactionId = await addTransactionToFirestore(transactionAmount, transactionType);
+        transactionInput.value = "";
         updateBalance();
-        createExpenseItem(expenseId, expenseAmount);
-    } else alert("Please enter a valid expense amount!");
+        createTransactionItem(transactionId, transactionAmount, transactionType);
+    } else alert("Please enter a valid amount!");
 }
-async function addExpenseToFirestore(amount) {
-    let expense = await (0, _firestore.addDoc)((0, _firestore.collection)((0, _firebaseJs.db), "expenses"), {
+async function addTransactionToFirestore(amount, type) {
+    let transaction = await (0, _firestore.addDoc)((0, _firestore.collection)((0, _firebaseJs.db), "transactions"), {
         amount: amount,
+        type: type,
         email: email
     });
-    return expense.id;
+    return transaction.id;
 }
-async function getExpensesFromFirestore() {
-    let q = (0, _firestore.query)((0, _firestore.collection)((0, _firebaseJs.db), "expenses"), (0, _firestore.where)("email", "==", email));
+async function getTransactionsFromFirestore() {
+    let q = (0, _firestore.query)((0, _firestore.collection)((0, _firebaseJs.db), "transactions"), (0, _firestore.where)("email", "==", email));
     return await (0, _firestore.getDocs)(q);
 }
 async function updateBalance() {
-    let expenses = await getExpensesFromFirestore();
+    let transactions = await getTransactionsFromFirestore();
+    let totalIncome = 0;
     let totalExpense = 0;
-    expenses.forEach((expense)=>{
-        totalExpense += expense.data().amount;
+    transactions.forEach((transaction)=>{
+        if (transaction.data().type === "income") totalIncome += transaction.data().amount;
+        else if (transaction.data().type === "expense") totalExpense += transaction.data().amount;
     });
-    balanceDisplay.textContent = `$${totalExpense.toFixed(2)}`;
+    const balance = totalIncome - totalExpense;
+    balanceDisplay.textContent = `$${balance.toFixed(2)}`;
 }
-function createExpenseItem(id, amount) {
-    let expenseItem = document.createElement("li");
-    expenseItem.id = id;
-    expenseItem.textContent = `$${amount.toFixed(2)}`;
-    expenseList.appendChild(expenseItem);
+function createTransactionItem(id, amount, type) {
+    let transactionItem = document.createElement("li");
+    transactionItem.id = id;
+    transactionItem.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: $${amount.toFixed(2)}`;
+    transactionList.appendChild(transactionItem);
 }
 window.addEventListener("load", async ()=>{
     getApiKey();
@@ -674,8 +678,8 @@ aiButton.addEventListener("click", async ()=>{
     if (prompt) askChatBot(prompt);
     else appendMessage("Please enter a prompt");
 });
-addExpenseBtn.addEventListener("click", async ()=>{
-    await addExpense();
+addTransactionBtn.addEventListener("click", async ()=>{
+    await addTransaction();
 });
 signOutBttn.addEventListener("click", function() {
     localStorage.removeItem("email");
