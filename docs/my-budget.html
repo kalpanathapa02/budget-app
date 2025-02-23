@@ -19,7 +19,15 @@
       </div>
       <div class="container">
         <label for="amountInput"><h2>Enter an amount</h2></label>
-        <input name="amountInput" type="number" id="amountInput" placeholder="Enter amount">
+        <input name="amountInput" type="number" id="incomeInput" placeholder="Enter amount">
+
+        <!-- Dropdown for selecting Transaction Type -->
+        <label for="transactionType"><h2>Select Transaction Type</h2></label>
+        <select id="transactionType">
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
+        </select>
+
         <label for="categoryInput"><h2>Select Category</h2></label>
         <select id="categoryInput">
           <option value="food">Food</option>
@@ -27,8 +35,10 @@
           <option value="entertainment">Entertainment</option>
           <option value="others">Others</option>
         </select>
-        <button id="addExpenseBtn">Add Expense</button>
-        <ul aria-live="polite" id="expenseList"></ul>
+        <button id="addTransactionBtn">Add Transaction</button>
+        <ul aria-live="polite" id="expenseList">
+          <!-- Renamed to match JS -->
+        </ul>
       </div>
 
       <!-- Chatbot Trigger Button -->
