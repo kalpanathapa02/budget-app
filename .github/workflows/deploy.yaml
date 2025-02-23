@@ -1,4 +1,4 @@
-name: Deploy Vanilla JavaScript PWA Checklist App
+name: Deploy Kalpana Budget App
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
           if [ -f package.json ]; then
             npm install
           fi
-      
+
       - name: Run linting
         run: npm run lint || true
 
