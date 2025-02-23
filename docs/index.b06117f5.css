@@ -1,0 +1,181 @@
+body {
+  color: #333;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  display: flex;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+  background: #ff6f91;
+  width: 100%;
+  padding: .3rem 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px #0003;
+}
+
+input, button {
+  border: none;
+  border-radius: 8px;
+  width: 90%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+select {
+  color: #333;
+  background: #fff5f7;
+  border: none;
+  border-radius: 8px;
+  width: 90%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+select option {
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+input {
+  color: #333;
+  background: #fff5f7;
+  border: 1px solid #ffafbd;
+  outline: none;
+}
+
+input:focus {
+  border-color: #ff6f91;
+  box-shadow: 0 0 5px #ff6f91;
+}
+
+button {
+  color: #fff;
+  cursor: pointer;
+  background: #ff6f91;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+button:hover {
+  background: #ff4f77;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  background: #fff5f7;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+  display: flex;
+}
+
+#chatbot-container {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 15px;
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  box-shadow: 0 4px 10px #0003;
+}
+
+#chat-history {
+  border-bottom: 1px solid #ddd;
+  height: 150px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  overflow-y: auto;
+}
+
+#chat-input {
+  width: 90%;
+  display: flex;
+}
+
+#chatbot-toggle, #close-chat {
+  color: #fff;
+  cursor: pointer;
+  background: #ff6f91;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  font-size: 1.5rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0 4px 10px #0003;
+}
+
+#chatbot-toggle:hover {
+  background: #ff4f77;
+}
+
+#signOutBttn {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  background: #ff6f91;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  transition: all .3s;
+  position: fixed;
+  top: 130px;
+  right: 20px;
+}
+
+#signIn {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  background: #ff6f91;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+@media (width <= 600px) {
+  .container, #chatbot-container {
+    width: 95%;
+  }
+}
+/*# sourceMappingURL=index.b06117f5.css.map */

@@ -1,103 +1,209 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: 
-#f4f4f4;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 100vh;
 }
 
-h1 {
-    background-color: 
-#375A8B;
-    color: 
-white;
-    padding: 10px;
+/* Header */
+header {
+  background: #ff6f91;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 0.3rem 0;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
+/* Main Container */
 .container {
-    margin: 20px auto;
-    max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  margin-top: 20px;
 }
 
-input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    margin-right: 5px;
-    border: 1px solid 
-#ccc;
-    border-radius: 4px;
-}
-
+/* Input Fields */
+input,
 button {
-    padding: 10px 15px;
-    background-color: 
-#375A8B;
-    color: 
-white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+select {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff5f7;
+  color: #333;
+}
+
+select option {
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input {
+  background: #fff5f7;
+  border: 1px solid #ffafbd;
+  color: #333;
+  outline: none;
+}
+
+input:focus {
+  border-color: #ff6f91;
+  box-shadow: 0px 0px 5px #ff6f91;
+}
+
+/* Buttons */
+button {
+  background: #ff6f91;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-    background-color: 
-#005bb5;
+  background: #ff4f77;
 }
 
+/* Budget List */
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 li {
-    background: 
-white;
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid 
-#ccc;
-    border-radius: 4px;
+  background: #fff5f7;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-label {
-    display: block;
-}
-
+/* Chatbot Container */
 #chatbot-container {
-    width: 300px;
-    border: 1px solid 
-#ccc;
-    padding: 10px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: 
-white;
-    box-shadow: 0px 4px 6px 
-rgba(0, 0, 0, 0.1);
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
 }
 
 #chat-history {
-    height: 200px;
-    overflow-y: auto;
-    border-bottom: 1px solid 
-#ccc;
-    margin-bottom: 10px;
-    padding: 5px;
+  height: 150px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #chat-input {
-    width: calc(100% - 60px);
-    padding: 5px;
-    margin-right: 5px;
+  display: flex;
+  width: 90%;
 }
 
-#send-btn {
-    padding: 5px 10px;
-    cursor: pointer;
+/* Chatbot Toggle Button */
+#chatbot-toggle {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff6f91;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.history {
-    padding-bottom: 15px;
+#close-chat {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff6f91;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#chatbot-toggle:hover {
+  background: #ff4f77;
+}
+
+#signOutBttn {
+  background: #ff6f91;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  top: 130px;
+  right: 20px;
+  width: 100px;
+  text-align: center;
+}
+
+#signIn {
+  background: #ff6f91;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+
+  width: 100px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container,
+  #chatbot-container {
+    width: 95%;
+  }
 }

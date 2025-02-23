@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/index.adf00102.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff69b4">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="/index.b06117f5.css">
+    <link rel="manifest" href="/up_/up_/manifest.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/favicon.26bafa54.ico">
+  </head>
+  <body>
+    <header>
+      <h1>Budget Tracker</h1>
+    </header>
+    <main>
+      <div>
+        <button id="signOutBttn">Sign Out</button>
+      </div>
+      <div class="container">
+        <label for="amountInput"><h2>Enter an amount</h2></label>
+        <input name="amountInput" type="number" id="amountInput" placeholder="Enter amount">
+        <label for="categoryInput"><h2>Select Category</h2></label>
+        <select id="categoryInput">
+          <option value="food">Food</option>
+          <option value="transport">Transport</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="others">Others</option>
+        </select>
+        <button id="addExpenseBtn">Add Expense</button>
+        <ul aria-live="polite" id="expenseList"></ul>
+      </div>
+
+      <!-- Chatbot Trigger Button -->
+      <button id="chatbot-toggle">💬</button>
+
+      <!-- Chatbot Container -->
+      <div id="chatbot-container" class="hidden">
+        <div id="chat-header">
+          <span>Chatbot</span>
+          <button id="close-chat">✖</button>
+        </div>
+        <div id="chat-history"></div>
+        <input type="text" id="chat-input" placeholder="Ask me something...">
+        <button id="send-btn">Send</button>
+      </div>
+    </main>
+    <script src="/my-budget.bd79e6dc.js" defer=""></script>
+  </body>
+</html>
