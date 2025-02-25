@@ -22,6 +22,9 @@ Check out the repository for source code and contributions:
 - **Responsive Design**: The app is fully responsive, providing an excellent experience on any device.
 - **Visually Appealing UI**: A clean and easy-to-use interface that makes managing your budget a breeze.
 
+  ![image](https://github.com/user-attachments/assets/6dbfef5c-2abf-427f-a526-6e446559c48f)
+
+
 ---
 
 ## Tech Stack 💻
