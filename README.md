@@ -58,3 +58,18 @@ Run the app locally: After installing the dependencies, run the following comman
 ```
 
 Open your browser: The app should now be accessible in your browser at http://localhost:1234
+
+## Deployment 🚀
+
+The app is deployed to GitHub Pages using **GitHub Actions**. Any changes pushed to the main branch will automatically trigger a deployment to the live site.
+
+---
+
+## Contact 💬
+
+If you have any questions or suggestions, feel free to reach out to me:  
+**Kalpana Thapa**  
+[GitHub](https://github.com/kalpanathapa02)  
+
+Happy budgeting! 😊
+
